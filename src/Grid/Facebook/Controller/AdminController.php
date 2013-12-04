@@ -33,7 +33,7 @@ class AdminController extends AbstractAdminController
         $serviceLocator = $this->getServiceLocator();
         $model          = $serviceLocator->get( 'Grid\Facebook\Model\ApplicationSettings\Model' );
         $form           = $serviceLocator->get( 'Form' )
-                                         ->get( 'Grid\User\Group' );
+                                         ->get( 'Grid\Facebook\ApplicationSettings' );
 
         $data       = array();
         $structures = array();
