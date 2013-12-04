@@ -137,7 +137,7 @@
         }
         else
         {
-            element = $( element );
+            element = $( element ).parent();
 
             if ( element && 0 in element )
             {
