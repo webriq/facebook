@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var $this \Zend\View\Renderer\PhpRenderer
+ */
+
+$this->headTitle( $title = $this->translate(
+    'admin.navTop.settings.facebook',
+    'admin'
+) );
+
+?>
+<h1><?= $title ?></h1>
+<div class="page">
+    <?= $this->form( $this->form, 'facebook' ) ?>
+</div>
