@@ -1,0 +1,37 @@
+{
+    "name": "gridguyz/facebook",
+    "type": "gridguyz-module",
+    "description": "Facebook module for Gridguyz CMS",
+    "license": "CC-BY-SA-3.0",
+    "keywords": [
+        "gridguyz",
+        "module",
+        "facebook"
+    ],
+    "homepage": "http://gridguyz.com/",
+    "authors": [
+        {
+            "name": "David Pozsar",
+            "email": "david.pozsar@megaweb.hu",
+            "homepage": "http://gridguyz.com/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "dev@megaweb.hu",
+        "source": "https://github.com/gridguyz/facebook"
+    },
+    "require": {
+        "php": ">=5.4",
+        "gridguyz/module-installer": "*",
+        "gridguyz/core": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Grid\\Facebook": "src/"
+        },
+        "classmap": [
+            "Module.php"
+        ]
+    }
+}
