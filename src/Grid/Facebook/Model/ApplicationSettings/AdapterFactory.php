@@ -48,11 +48,15 @@ class AdapterFactory extends FactoryAbstract
     public function factory( $adapter, $options = null )
     {
         $adapter = parent::factory( $adapter, $options );
-        $adapter->setModel( $this->getModel() );
 
-        if ( $adapter instanceof ServiceLocatorAwareInterface )
+        if ( $adapter )
         {
-            $adapter->setServiceLocator( $this->getServiceLocator() );
+            $adapter->setModel( $this->getModel() );
+
+            if ( $adapter instanceof ServiceLocatorAwareInterface )
+            {
+                $adapter->setServiceLocator( $this->getServiceLocator() );
+            }
         }
 
         return $adapter;
