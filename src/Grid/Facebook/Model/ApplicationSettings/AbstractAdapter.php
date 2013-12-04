@@ -179,9 +179,10 @@ abstract class AbstractAdapter extends StructureAbstract
      */
     public function hasSetting( $name )
     {
-        $structure = $this->isModeDefault() && in_array( $name, $this->getDefaultSettingsKeys() )
-                   ? $this->getFallbackStructure()
-                   : $this->getSpecificStructure();
+        $structure = $this->isModeDefault()
+                  && in_array( $name, $this->getDefaultSettingsKeys() )
+                        ? $this->getFallbackStructure()
+                        : $this->getSpecificStructure();
 
         return $structure->hasSetting( $name );
     }
@@ -195,9 +196,10 @@ abstract class AbstractAdapter extends StructureAbstract
      */
     public function getSetting( $name, $default = null )
     {
-        $structure = $this->isModeDefault() && in_array( $name, $this->getDefaultSettingsKeys() )
-                   ? $this->getFallbackStructure()
-                   : $this->getSpecificStructure();
+        $structure = $this->isModeDefault()
+                  && in_array( $name, $this->getDefaultSettingsKeys() )
+                        ? $this->getFallbackStructure()
+                        : $this->getSpecificStructure();
 
         return $structure->getSetting( $name, $default );
     }
