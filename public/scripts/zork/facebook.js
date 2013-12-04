@@ -50,18 +50,23 @@
                 queue.push( callback );
             }
 
+            var appId   = fAppId(),
+                options = {
+                    "status": true,
+                    "cookie": true,
+                    "xfbml": !! parse
+                };
+
+            if ( appId )
+            {
+                options.appId = appId;
+            }
+
             $.getScript(
                 href.replace( /%locale%/g, fLocale() ),
                 function() {
-                    global.FB.init( {
-                        "appId": fAppId(),
-                        "status": true,
-                        "cookie": true,
-                        "xfbml": !! parse
-                    } );
-
+                    global.FB.init( options );
                     inited = true;
-
                     queue.forEach( function ( cb ) {
                         setTimeout( cb, 1 );
                     } );
