@@ -1,6 +1,6 @@
 <?php
 
-namespace Grid\User\Controller;
+namespace Grid\Facebook\Controller;
 
 use Zork\Stdlib\Message;
 use Zork\Mvc\Controller\AbstractAdminController;
