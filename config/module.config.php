@@ -120,7 +120,10 @@ return array(
                         'name'  => 'submit',
                         'options'   => array(
                             'required'  => false,
-                            'label'     => 'facebook.form.settings.submit',
+                            'label'     => false,
+                        ),
+                        'attributes'    => array(
+                            'value'     => 'facebook.form.settings.submit',
                         ),
                     ),
                 ),

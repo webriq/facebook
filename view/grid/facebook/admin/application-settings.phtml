@@ -8,8 +8,14 @@ $this->headTitle( $title = $this->translate(
     'admin'
 ) );
 
+$this->headTitle( $subTitle = $this->translate(
+    'facebook.form.settings.title',
+    'facebook'
+) );
+
 ?>
-<h1><?= $title ?></h1>
+<h1><?= $this->escapeHtml( $title ) ?></h1>
 <div class="page">
+    <h3><?= $this->escapeHtml( $subTitle ) ?></h3>
     <?= $this->form( $this->form, 'facebook' ) ?>
 </div>
