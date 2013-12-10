@@ -127,7 +127,7 @@
      *
      * @param   {$|HTMLElement|String|Null} element
      * @param   {Function}                  callback
-     * @returns {Boolean}
+     * @returns {undefined}
      */
     global.Zork.Facebook.prototype.xfbml = function ( element, callback )
     {
@@ -171,5 +171,57 @@
     };
 
     global.Zork.Facebook.prototype.xfbml.isElementConstructor = true;
+
+    /**
+     * Parse facebook's xfbml nodes
+     *
+     * @param   {String}    path
+     * @param   {String}    method
+     * @param   {Object}    params
+     * @param   {Function}  callback
+     * @returns {undefined}
+     */
+    global.Zork.Facebook.prototype.graph = function ( path, method, params, callback )
+    {
+        path = "/" + String( path || "" ).replace( /\/+/, "" );
+
+        if ( Function.isFunction( method ) )
+        {
+            callback    = method;
+            method      = "get";
+            params      = {};
+        }
+        else
+        {
+            method = String( method || "get" );
+
+            if ( Function.isFunction( params ) )
+            {
+                callback    = params;
+                params      = {};
+            }
+            else
+            {
+                params = Object( params || {} );
+            }
+        }
+
+        var finish = function () {
+            global.FB.api( path, method, params, callback );
+        };
+
+        if ( inited )
+        {
+            finish();
+        }
+        else if ( initing )
+        {
+            queue.push( finish );
+        }
+        else
+        {
+            js.facebook.init( false, finish );
+        }
+    };
 
 } ( window, jQuery, zork ) );
