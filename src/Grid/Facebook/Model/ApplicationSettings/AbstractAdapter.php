@@ -134,13 +134,20 @@ abstract class AbstractAdapter extends StructureAbstract
     }
 
     /**
+     * @return  string
+     */
+    public function getMode()
+    {
+        return $this->getSpecificStructure()
+                    ->getSetting( 'mode', static::MODE_DEFAULT );
+    }
+
+    /**
      * @return  bool
      */
     protected function isModeDefault()
     {
-        return static::MODE_DEFAULT
-            == $this->getSpecificStructure()
-                    ->getSetting( 'mode', static::MODE_DEFAULT );
+        return static::MODE_DEFAULT == $this->getMode();
     }
 
     /**
